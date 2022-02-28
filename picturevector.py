@@ -17,6 +17,7 @@ class Picvector():
                 r, g, b = self.pixels[i, j]
                 self.pixels[i, j] = 255 - r, 255 - g, 255 - b
                 self.klist.append(self.pixels[i, j])
+        self.im.save(self.img + "-1" + ".jpg")
         return self.klist
     def hx(self):
         global x

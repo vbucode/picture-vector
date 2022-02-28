@@ -1,7 +1,7 @@
 #module to work with pixels
 from PIL import Image
 
-def vectorpixels(img, img2 = 0):
+def vectorpixels(img):
     klist = []
     im = Image.open(img) #открываем изображение с диска
     pixels = im.load() # список с пикселями

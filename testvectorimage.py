@@ -1,8 +1,8 @@
-import vectorimage
+import picturevector
 from PIL import Image
 
-tvi = vectorimage.vectorpixels("004t.jpg", "004t-1.jpg")
-ovi = vectorimage.vectorpixels("004.jpg", "004-1.jpg")
+tvi = picturevector.vectorpixels("004t.jpg", "004t-1.jpg")
+ovi = picturevector.vectorpixels("004.jpg", "004-1.jpg")
 
 for i in ovi:
     c = 0

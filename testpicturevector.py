@@ -1,8 +1,8 @@
 from picturevector import Picvector
 from PIL import Image
 
-tvi = Picvector("il1.jpg")
-ovi = Picvector("il.jpg")
+tvi = Picvector("pic1.jpg")
+ovi = Picvector("pic.jpg")
 for i in ovi.vectorpixels():
     c = 0
     for j in tvi.vectorpixels():

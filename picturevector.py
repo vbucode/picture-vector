@@ -13,10 +13,12 @@ class Picvector():
         self.pixels = self.im.load() # список с пикселями
         self.x, self.y = self.im.size # ширина (x) и высота (y) изображения
         for i in range(self.x):
+            self.slist.clear()
             for j in range(self.y):
                 r, g, b = self.pixels[i, j]
                 self.pixels[i, j] = 255 - r, 255 - g, 255 - b
-                self.klist.append(self.pixels[i, j])
+                self.slist.append(self.pixels[i, j])
+            self.klist.append(self.slist)
         self.im.save(self.img + "-1" + ".jpg")
         return self.klist
     def hx(self):

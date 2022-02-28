@@ -3,6 +3,7 @@ from PIL import Image
 
 class Picvector():
     klist = []
+    slist = []
     def __init__(self, img):
         self.img = img
     def vectorpixels(self):
@@ -14,8 +15,8 @@ class Picvector():
         for i in range(self.x):
             for j in range(self.y):
                 r, g, b = self.pixels[i, j]
-                self.klist.append(self.pixels[i,j])
-                self.pixels[i, j] = r, g, b
+                self.pixels[i, j] = 255 - r, 255 - g, 255 - b
+                self.klist.append(self.pixels[i, j])
         return self.klist
     def hx(self):
         global x
@@ -25,5 +26,3 @@ class Picvector():
         global y
         y = self.y
         return self.y
-        
-        

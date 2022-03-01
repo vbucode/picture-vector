@@ -24,9 +24,9 @@ class Picvector():
         #self.im.save(self.img + "-1" + ".jpg") # this option is optional
         for i in self.klist:
             for j in i:
-                if sum(j) != 0:
-                    self.ylist.append(1)
-                self.ylist.append(0)
+                if sum(j) <= 6:
+                    self.ylist.append(0)
+                self.ylist.append(1)
             self.xlist.append(self.ylist)
             del self.ylist[len(i):]
         return self.xlist

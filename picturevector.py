@@ -4,30 +4,32 @@ from PIL import Image
 class Picvector():
     klist = []
     slist = []
+    xlist = []
+    ylist = []
     def __init__(self, img):
         self.img = img
     def vectorpixels(self):
         global x
         global y
-        self.im = Image.open(self.img) #open file on disk
+        self.im = Image.open(self.img) # open file from disk
         self.pixels = self.im.load() # list of pixels
-        self.x, self.y = self.im.size # xy of picture
+        self.x, self.y = self.im.size # x y sizes picture
         for i in range(self.x):
-            self.slist.clear()
             for j in range(self.y):
                 r, g, b = self.pixels[i, j]
                 self.pixels[i, j] = 255 - r, 255 - g, 255 - b
                 self.slist.append(self.pixels[i, j])
             self.klist.append(self.slist)
+            del self.slist[self.x:]
         #self.im.save(self.img + "-1" + ".jpg") # this option is optional
         for i in self.klist:
             for j in i:
-                print(len(j))
-                if j == 0:
-                    i[i.index(j)] = 0
-                else:
-                    i[i.index(j)] = 1
-        return self.klist
+                if sum(j) != 0:
+                    self.ylist.append(1)
+                self.ylist.append(0)
+            self.xlist.append(self.ylist)
+            del self.ylist[len(i):]
+        return self.xlist
     def hx(self):
         global x
         x = self.x
@@ -36,3 +38,5 @@ class Picvector():
         global y
         y = self.y
         return self.y
+        
+        

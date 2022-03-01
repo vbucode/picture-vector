@@ -9,9 +9,9 @@ class Picvector():
     def vectorpixels(self):
         global x
         global y
-        self.im = Image.open(self.img) #открываем изображение с диска
-        self.pixels = self.im.load() # список с пикселями
-        self.x, self.y = self.im.size # ширина (x) и высота (y) изображения
+        self.im = Image.open(self.img) #open file on disk
+        self.pixels = self.im.load() # list of pixels
+        self.x, self.y = self.im.size # xy of picture
         for i in range(self.x):
             self.slist.clear()
             for j in range(self.y):
@@ -19,7 +19,7 @@ class Picvector():
                 self.pixels[i, j] = 255 - r, 255 - g, 255 - b
                 self.slist.append(self.pixels[i, j])
             self.klist.append(self.slist)
-        self.im.save(self.img + "-1" + ".jpg")
+        #self.im.save(self.img + "-1" + ".jpg") # this option is optional 
         return self.klist
     def hx(self):
         global x

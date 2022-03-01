@@ -19,7 +19,14 @@ class Picvector():
                 self.pixels[i, j] = 255 - r, 255 - g, 255 - b
                 self.slist.append(self.pixels[i, j])
             self.klist.append(self.slist)
-        #self.im.save(self.img + "-1" + ".jpg") # this option is optional 
+        #self.im.save(self.img + "-1" + ".jpg") # this option is optional
+        for i in self.klist:
+            for j in i:
+                print(len(j))
+                if j == 0:
+                    i[i.index(j)] = 0
+                else:
+                    i[i.index(j)] = 1
         return self.klist
     def hx(self):
         global x

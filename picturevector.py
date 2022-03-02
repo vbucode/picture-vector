@@ -17,7 +17,8 @@ class Picvector():
             for j in range(self.y):
                 r, g, b = self.pixels[i, j]
                 self.pixels[i, j] = 255 - r, 255 - g, 255 - b
-                self.klist[j][i] = self.pixels[i, j]
+                if sum(self.pixels[i, j]) > 6:
+                    self.klist[j][i] = 1
         #self.im.save(self.img + "-1" + ".jpg") # this option is optional
         return self.klist
     def hx(self):

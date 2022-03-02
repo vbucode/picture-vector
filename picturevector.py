@@ -3,8 +3,6 @@ from PIL import Image
 
 class Picvector():
     klist = []
-    xlist = []
-    ylist = []
     def __init__(self, img):
         self.img = img
     def vectorpixels(self):

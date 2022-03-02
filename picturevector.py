@@ -12,13 +12,13 @@ class Picvector():
         self.pixels = self.im.load() # list of pixels
         self.x, self.y = self.im.size # x y sizes picture
         for i in range(self.y):
-            self.klist.append([0]*self.x)
+            self.klist.append([1]*self.x)
         for i in range(self.x):
             for j in range(self.y):
                 r, g, b = self.pixels[i, j]
-                self.pixels[i, j] = 255 - r, 255 - g, 255 - b
-                if sum(self.pixels[i, j]) > 6:
-                    self.klist[j][i] = 1
+                self.pixels[i, j] = r, g, b
+                if sum(self.pixels[i, j]) <= 700:
+                    self.klist[j][i] = 0
         #self.im.save(self.img + "-1" + ".jpg") # this option is optional
         return self.klist
     def hx(self):

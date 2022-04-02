@@ -4,7 +4,7 @@ import json
 
 dict = {}
 
-tvi = Picvector("p.jpg")
+tvi = Picvector("image0.jpg")
 t = tvi.vectorpixels()
 
 tx = tvi.hx()

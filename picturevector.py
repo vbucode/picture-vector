@@ -12,8 +12,8 @@ class Picvector():
         self.x, self.y = self.im.size # x y sizes picture
         for i in range(self.x):
             tlist = []
+            tlist2 = []
             for j in range(self.y):
-                tlist2 = []
                 r, g, b = self.pixels[i, j]
                 self.pixels[i, j] = r, g, b
                 if sum(self.pixels[i, j]) <= 700:

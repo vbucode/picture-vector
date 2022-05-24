@@ -1,26 +1,31 @@
-#module to work with pixels
 from PIL import Image
 
 class Picvector():
-    klist = []
     def __init__(self, img):
         self.img = img
     def vectorpixels(self):
         global x
         global y
+        klist = []
         self.im = Image.open(self.img) # open file from disk
         self.pixels = self.im.load() # list of pixels
         self.x, self.y = self.im.size # x y sizes picture
-        for i in range(self.y):
-            self.klist.append([1]*self.x)
         for i in range(self.x):
+            tlist = []
+            tlist2 = []
             for j in range(self.y):
                 r, g, b = self.pixels[i, j]
                 self.pixels[i, j] = r, g, b
                 if sum(self.pixels[i, j]) <= 700:
-                    self.klist[j][i] = 0
+                    tlist.append([1])
+                else:
+                    tlist.append([0])
+            for k in tlist:
+                tlist2.extend(k)
+            klist.append(tlist2)
+
         #self.im.save(self.img + "-1" + ".jpg") # this option is optional
-        return self.klist
+        return klist
     def hx(self):
         global x
         x = self.x

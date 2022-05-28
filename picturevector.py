@@ -8,13 +8,13 @@ class Picvector():
         self.im = Image.open(self.img) # open file from disk
         self.pixels = self.im.load() # list of pixels
         self.x, self.y = self.im.size # x y sizes picture
-        for i in range(self.x):
+        for i in range(self.y):
             tlist = []
             tlist2 = []
-            for j in range(self.y):
-                r, g, b = self.pixels[i, j]
-                self.pixels[i, j] = r, g, b
-                if sum(self.pixels[i, j]) <= 700:
+            for j in range(self.x):
+                r, g, b = self.pixels[j, i]
+                self.pixels[j, i] = r, g, b
+                if sum(self.pixels[j, i]) <= 700:
                     tlist.append([1])
                 else:
                     tlist.append([0])
